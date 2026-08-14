@@ -1,100 +1,66 @@
-# README - Move All Zeros to the End of an Array (C++)
+﻿# README - Move Zeros to the End
 
 ## Aim
+To rearrange an array by moving all zero elements to the end using different approaches available in this folder.
 
-To implement a C++ program that rearranges an array by moving all the **zero elements** to the end while maintaining the relative order of the **non-zero elements**.
+---
+
+## Approaches in this folder
+This folder contains three different implementations:
+
+1. Zero_At_End.cpp
+   - Uses a two-pass method.
+   - First collects all non-zero elements at the front.
+   - Then fills the remaining positions with zeros.
+
+2. Zero_At_End_maintain_order.cpp
+   - Keeps the relative order of non-zero elements.
+   - When a zero is found, it swaps it with the next non-zero element.
+
+3. Zero_At_End_unorder.cpp
+   - Uses two pointers, left and right.
+   - It rearranges the array in-place without caring about the order of non-zero elements.
 
 ---
 
 ## Algorithm
+### 1. Two-pass approach
+1. Read the array size and elements.
+2. Traverse the array and collect all non-zero elements at the front.
+3. Fill the remaining positions with zero.
+4. Print the updated array.
 
-### Step 1: Input Array
-1. Read the size of the array `n`.
-2. Read the `n` elements into the array.
+### 2. Maintain-order approach
+1. Read the array size and elements.
+2. Scan the array from left to right.
+3. When a zero is found, swap it with the next non-zero element.
+4. Continue until the array is rearranged.
 
-### Step 2: Initialize Index
-1. Create a variable `index` and initialize it to `0`.
-2. This variable keeps track of the position where the next non-zero element should be placed.
-
-### Step 3: Move Non-Zero Elements
-1. Traverse the array from the beginning.
-2. If the current element is non-zero:
-   - Place it at `arr[index]`.
-   - Increment `index`.
-
-### Step 4: Fill Remaining Positions
-1. After all non-zero elements have been moved, fill the remaining positions of the array with `0`.
-
-### Step 5: Display Result
-1. Print the modified array.
+### 3. Two-pointer approach
+1. Read the array size and elements.
+2. Initialize two pointers: left at the start and right at the end.
+3. Swap zeros and non-zeros until the pointers meet.
+4. Print the updated array.
 
 ---
 
-## How It Works
-
-The program first accepts the size of the array and its elements from the user.
-
-It then traverses the array only once. Whenever a non-zero element is found, it is copied to the next available position at the beginning of the array.
-
-After all non-zero elements have been placed, the remaining positions are filled with zeros.
-
-This approach ensures:
-- All non-zero elements remain in their original order.
-- All zeros are moved to the end.
-- No extra array is required.
+## How it works
+Each program solves the same problem in a different way:
+- The first approach is simple and easy to understand.
+- The second approach preserves the order of non-zero elements.
+- The third approach is more optimized and uses two pointers for in-place rearrangement.
 
 ---
 
 ## Functionality
-
-The program performs the following operations:
-
-- Reads an array from the user.
-- Moves all non-zero elements to the beginning.
-- Places all zero elements at the end.
-- Displays the updated array.
+- Reads an array from the user
+- Moves all zeros to the end
+- Supports different rearrangement strategies
+- Displays the resulting array
 
 ---
 
-## Time Complexity
-
-| Operation | Time Complexity |
-|-----------|-----------------|
-| Traverse array | O(n) |
-| Fill zeros | O(n) |
-
-**Overall Time Complexity:** **O(n)**
-
----
-
-## Space Complexity
-
-**O(1)**
-
-The program rearranges the array in-place without using any additional array.
-
----
-
-## Sample Input
-
-```
-Enter size of array: 8
-
-Enter array elements:
-0 4 0 2 5 0 1 3
-```
-
----
-
-## Sample Output
-
-```
-Array after moving zeros to the end:
-4 2 5 1 3 0 0 0
-```
-
----
-
-## Conclusion
-
-This program efficiently moves all zero elements to the end of an array while preserving the order of non-zero elements. It uses an in-place algorithm with **O(n)** time complexity and **O(1)** extra space, making it an optimal solution for this problem.
+## Time and Space Complexity
+- Two-pass approach: Time O(n), Space O(1)
+- Maintain-order approach: Time O(n^2) in the simple implementation, Space O(1)
+- Two-pointer approach: Time O(n), Space O(1)
