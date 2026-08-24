@@ -1,0 +1,21 @@
+Tower of Hanoi Recursive Implementation
+
+This C++ program solves the classic Tower of Hanoi mathematical puzzle using recursion. The goal of the puzzle is to move a stack of disks from a starting rod to a target rod following three basic rules: only one disk can be moved at a time, each move consists of taking the upper disk from one of the stacks and placing it on top of another stack, and no larger disk may be placed on top of a smaller disk.
+
+The function named toh handles the core recursive strategy. To move n disks from the source rod to the destination rod using a helper rod, the function first recursively moves the top n - 1 disks from the source rod to the helper rod. Next, it prints the move for the remaining largest disk n from the source rod to the destination rod. Finally, it recursively moves the n - 1 disks from the helper rod to the destination rod using the source rod as the temporary helper. The main function prompts the user to input the number of disks, handles invalid negative inputs, and initiates the algorithm using rod 1 as the source, rod 2 as the helper, and rod 3 as the destination.
+
+Time Complexity
+The time complexity of this algorithm is O(2^n). Every call with n disks generates two recursive calls with n - 1 disks. The total number of moves required to solve the puzzle for n disks is (2^n) - 1.
+
+Space Complexity
+The auxiliary space complexity is O(n). This space is consumed by the implicit function call stack due to recursion, which reaches a maximum depth equal to the number of disks n.
+
+Sample Output
+Enter the number of disks: 3
+Move disk 1 from rod 1 to rod 3
+Move disk 2 from rod 1 to rod 2
+Move disk 1 from rod 3 to rod 2
+Move disk 3 from rod 1 to rod 3
+Move disk 1 from rod 2 to rod 1
+Move disk 2 from rod 2 to rod 3
+Move disk 1 from rod 1 to rod 3
