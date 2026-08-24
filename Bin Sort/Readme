@@ -1,0 +1,36 @@
+Bin Sort C++ Implementation
+
+Overview
+This program implements the Bin Sort algorithm, also commonly known as Counting Sort, to sort an array of integers in non-decreasing order. It finds the range of the input data, tallies the occurrences of each unique value in a frequency array, and then overwrites the original array with the sorted values based on those counts.
+
+Code Breakdown
+
+Main Functions
+
+binSort(int arr[], int size)
+This function accepts an integer array and its size. It checks for base cases where the array has one or zero elements. It then computes the minimum and maximum values in the array to determine the offset and the size of the frequency vector. A frequency vector named bins is initialized with zeros. The function iterates through the input array, incrementing the count for each shifted value. Finally, it iterates through the bins vector and overwrites the elements of the original array in sorted order.
+
+printArray(const int arr[], int size)
+This helper function prints the elements of an integer array separated by spaces, followed by a newline character.
+
+main()
+The entry point of the program. It initializes an unsorted array of seven integers, calculates its size, displays the array before sorting, invokes binSort, and displays the array after sorting.
+
+Time and Space Complexity Analysis
+
+Time Complexity
+Finding Minimum and Maximum: Finding the range of elements requires iterating through the array once, which takes O(N) time where N is the number of elements in the array.
+Populating Frequency Bins: Counting the frequencies requires iterating through the array once, taking O(N) time.
+Reconstructing the Array: Overwriting the array involves iterating over the bins vector of size K, where K is the range of elements defined by maximum minus minimum plus one. The inner while loop runs a total of N times across all bins. This step takes O(N + K) time.
+Overall Time Complexity: O(N + K) in the best, average, and worst cases.
+
+Space Complexity
+Auxiliary Space: The algorithm allocates a vector of size K equal to maximum minus minimum plus one to store element frequencies.
+Overall Space Complexity: O(K) auxiliary space.
+
+Sample Output
+
+Before sorting:
+42 32 33 52 37 47 51
+After sorting:
+32 33 37 42 47 51 52
