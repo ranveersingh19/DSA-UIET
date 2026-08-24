@@ -1,0 +1,46 @@
+Bucket Sort Implementation in C++
+
+This document explains two C++ implementations of the Bucket Sort algorithm: one for a singly linked list and another for a standard array.
+
+Overview
+Bucket Sort is a distribution-based sorting algorithm. It works by dividing input elements into several buckets, sorting the contents of each bucket individually, and then concatenating the sorted buckets back together to form the final sorted structure.
+
+Implementation Details
+
+1. Linked List Version
+The linked list implementation sorts nodes in place without reallocating node memory.
+It first calculates the total node count along with the minimum and maximum values present in the linked list.
+The number of buckets created equals the total number of nodes in the list.
+Each node is detached from the original list and mapped to a specific bucket index based on a normalized range formula.
+As each node is inserted into its assigned bucket, it is placed in sorted order using insertion sort on the linked nodes.
+Finally, all non-empty buckets are linked together sequentially to reconstruct the sorted linked list.
+2. Array Version
+The array implementation uses a range-based mapping strategy for integer elements.
+It determines the minimum and maximum values in the array and sets the number of buckets equal to the range size (maximum minus minimum plus one).
+Each integer element is placed into a bucket corresponding directly to its offset relative to the minimum value.
+After placing all numbers into their respective buckets, an insertion sort function runs on each dynamic array bucket.
+The elements are then copied back into the main array sequentially to produce the final sorted array.
+
+Time and Space Complexity
+
+Time Complexity
+Best Case: O(N + K) when elements are uniformly distributed across buckets, where N is the number of elements and K is the number of buckets.
+Average Case: O(N + K) under uniform distribution assumptions.
+Worst Case: O(N^2) when all elements fall into the exact same bucket, causing insertion sort to run in quadratic time.
+
+Space Complexity
+Auxiliary Space: O(N + K) to store the bucket collection structures and references.
+
+Sample Output
+
+Linked List Execution Output:
+Before sorting:
+42 -> 32 -> 33 -> 52 -> 37 -> 47 -> 51 -> NULL
+After sorting:
+32 -> 33 -> 37 -> 42 -> 47 -> 51 -> 52 -> NULL
+
+Array Execution Output:
+Before sorting:
+42 32 33 52 37 47 51
+After sorting:
+32 33 37 42 47 51 52
