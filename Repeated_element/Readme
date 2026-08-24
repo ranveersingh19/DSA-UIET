@@ -1,68 +1,18 @@
-# First Duplicate Element in an Array (Using `unordered_map`)
+Overview
+This program finds the first recurring element in an integer array using a hash map. It reads the array size and elements from standard input, tracks element frequencies sequentially, and prints the first number that reaches a frequency of two.
 
-## Aim
+How It Works
+The program allocates a fixed array of size 100 and prompts the user for the actual number of elements. It fills the array with values from standard input. Next, it iterates through the array from left to right while storing counts in an unordered map. As soon as an element's frequency count reaches two, the program immediately prints that element as the first duplicate and terminates with a return value of zero. If the loop completes without finding any repeated value, it displays a message stating that no duplicate is present.
 
-To find the first duplicate element in an array using the C++ Standard Template Library (STL) `unordered_map`.
+Time Complexity
+Average Time Complexity: O(n) where n is the number of elements in the array. Inserting into and searching an unordered map takes constant time O(1) on average, resulting in linear time across n elements.
+Worst Case Time Complexity: O(n squared) in the event of hash collisions within the unordered map, though in practice it remains linear for standard inputs.
+Space Complexity: O(n) to store up to n elements in the hash map.
 
----
+Sample Input and Output
+Input:
+Enter size of Input array: 6
+10 20 30 20 10 50
 
-## Algorithm
-
-1. Read the size of the array `n`.
-2. Input all `n` elements into the array.
-3. Create an `unordered_map<int, int>` to store the frequency of each element.
-4. Traverse the array from left to right.
-5. For each element:
-
-   * Increment its frequency in the map.
-   * If its frequency becomes `2`, it is the first duplicate encountered.
-   * Print the element and terminate the program.
-6. If no element reaches a frequency of `2`, print `"No duplicate element found"`.
-
----
-
-## Time Complexity
-
-* **Average Case:** `O(n)`
-
-Each element is processed once, and insertion/lookup in `unordered_map` takes constant time on average.
-
----
-
-## Space Complexity
-
-* **O(n)**
-
-An `unordered_map` is used to store the frequency of each distinct element.
-
----
-
-## Example
-
-### Input
-
-```text
-5
-2 4 1 4 3
-```
-
-### Output
-
-```text
-First duplicate element: 4
-```
-
----
-
-## STL Used
-
-* `unordered_map`
-
-  * Stores the frequency of each array element.
-  * Provides average `O(1)` insertion and lookup time.
-
----
-
-## Conclusion
-
-This program efficiently finds the first duplicate element encountered during a left-to-right traversal of the array by using an `unordered_map` to maintain the frequency of elements. Compared to the brute-force approach (`O(n²)`), this solution runs in linear time (`O(n)`), making it suitable for large input sizes.
+Output:
+First duplicate element: 20
