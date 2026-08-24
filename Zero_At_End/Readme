@@ -1,66 +1,34 @@
-﻿# README - Move Zeros to the End
+Move Zeros to End of Array - C++ Implementations
 
-## Aim
-To rearrange an array by moving all zero elements to the end using different approaches available in this folder.
+This project contains three C++ implementations for moving all zeros in an integer array to the end while retaining non-zero elements.
 
----
+Overview of Implementations
 
-## Approaches in this folder
-This folder contains three different implementations:
+First Approach: Two-Pass Overwrite
+The first program uses a single pointer index to keep track of where the next non-zero element should be placed. It iterates through the array and copies every non-zero element to the position marked by index, incrementing index each time. Once all non-zero elements are placed, a second loop fills the remaining positions from index to the end of the array with zeros. This method maintains the relative order of the non-zero elements.
 
-1. Zero_At_End.cpp
-   - Uses a two-pass method.
-   - First collects all non-zero elements at the front.
-   - Then fills the remaining positions with zeros.
+Second Approach: Nested Loop Swap
+The second program scans the array for a zero element using an outer loop. When a zero is found, an inner loop searches for the very next non-zero element coming after it and swaps them immediately. After performing the search and swap logic inside the main loop, it prints intermediate results during iteration. This approach also maintains the relative order of non-zero elements.
 
-2. Zero_At_End_maintain_order.cpp
-   - Keeps the relative order of non-zero elements.
-   - When a zero is found, it swaps it with the next non-zero element.
+Third Approach: Two-Pointer Opposite Ends
+The third program uses two pointers, l starting at index 0 and r starting at index n-1. It moves toward the center. If arr[l] is zero and arr[r] is non-zero, it swaps them and adjusts both pointers. If arr[l] is already non-zero, l moves right. If arr[r] is zero, r moves left. This approach minimizes operations but does not preserve the relative order of non-zero elements.
 
-3. Zero_At_End_unorder.cpp
-   - Uses two pointers, left and right.
-   - It rearranges the array in-place without caring about the order of non-zero elements.
+Complexity Analysis
 
----
+First Approach
+Time Complexity: O(n) because it iterates over the array twice in separate linear loops.
+Space Complexity: O(1) auxiliary space beyond the input array storage.
 
-## Algorithm
-### 1. Two-pass approach
-1. Read the array size and elements.
-2. Traverse the array and collect all non-zero elements at the front.
-3. Fill the remaining positions with zero.
-4. Print the updated array.
+Second Approach
+Time Complexity: O(n^2) in the worst case due to the nested loops searching for non-zero elements.
+Space Complexity: O(1) auxiliary space.
 
-### 2. Maintain-order approach
-1. Read the array size and elements.
-2. Scan the array from left to right.
-3. When a zero is found, swap it with the next non-zero element.
-4. Continue until the array is rearranged.
+Third Approach
+Time Complexity: O(n) because the left and right pointers together traverse the array at most once.
+Space Complexity: O(1) auxiliary space.
 
-### 3. Two-pointer approach
-1. Read the array size and elements.
-2. Initialize two pointers: left at the start and right at the end.
-3. Swap zeros and non-zeros until the pointers meet.
-4. Print the updated array.
+Sample Output
 
----
-
-## How it works
-Each program solves the same problem in a different way:
-- The first approach is simple and easy to understand.
-- The second approach preserves the order of non-zero elements.
-- The third approach is more optimized and uses two pointers for in-place rearrangement.
-
----
-
-## Functionality
-- Reads an array from the user
-- Moves all zeros to the end
-- Supports different rearrangement strategies
-- Displays the resulting array
-
----
-
-## Time and Space Complexity
-- Two-pass approach: Time O(n), Space O(1)
-- Maintain-order approach: Time O(n^2) in the simple implementation, Space O(1)
-- Two-pointer approach: Time O(n), Space O(1)
+Enter size of array: 6
+Enter array elements: 1 0 3 0 5 0
+Array after moving zeros to the end: 1 3 5 0 0 0
