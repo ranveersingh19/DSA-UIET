@@ -1,0 +1,27 @@
+This C++ program implements a doubly linked list with zero-based indexing. It supports inserting an element at a specified position, deleting an element at a specified position, searching for an element by value, and displaying the current contents of the list.
+
+The program manages memory using dynamic allocation with the new operator during insertion and frees memory using the delete operator during removal. A global pointer named head tracks the start of the list.
+
+Time Complexity:
+
+Insertion at position 0: O(1) time complexity.
+Insertion at position N: O(N) time complexity because it traverses up to position N - 1.
+Deletion at position 0: O(1) time complexity.
+Deletion at position N: O(N) time complexity because it traverses up to position N.
+Search: O(N) time complexity in the worst case as it scans from head to tail.
+Display: O(N) time complexity to traverse and print all elements.
+Space Complexity: O(1) auxiliary space per operation, and O(N) overall space to store N nodes.
+
+Sample Output:
+
+    Insert
+
+    Delete
+
+    Search
+
+    Display
+
+    Exit
+    Enter your choice: 1
+    Enter element and position: 10 0
