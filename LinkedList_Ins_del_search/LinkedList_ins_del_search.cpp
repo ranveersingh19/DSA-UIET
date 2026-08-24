@@ -10,7 +10,7 @@ public:
     }
 };
 int main(){
-    int n ;
+    int n = 0;
     cout << "Enter the size of Linked List : " ;
     cin >> n ;
     Node* head = NULL ;
@@ -40,24 +40,50 @@ int main(){
         switch(choice) {
             case 1: {
                 int element, pos ;
-                for(int i=0 ; i<pos ; i++){
-                    curr = curr->next ;
-                }
+                cout << "Enter the Position : " ;
+                cin >> pos ;
                 cout << "Enter the Element : " ;
                 cin >> element ;
                 Node* temp = new Node(element) ;
-                temp->next = curr->next ;
-                curr->next = temp ;
+                if (pos == 0) {
+                    temp->next = head ;
+                    head = temp ;
+                } else {
+                    curr = head ;
+                    for(int i=0 ; i<pos-1 && curr != NULL ; i++){
+                        curr = curr->next ;
+                    }
+                    if (curr != NULL) {
+                        temp->next = curr->next ;
+                        curr->next = temp ;
+                    }
+                }
+                n++ ;
                 break ;
             }
             case 2: {
                 int pos ;
                 cout << "Enter the Position : " ;
                 cin >> pos ;
-                for(int i=0 ; i<pos ; i++){
-                    curr = curr->next ;
+                if (head != NULL) {
+                    if (pos == 0) {
+                        Node* toDelete = head ;
+                        head = head->next ;
+                        delete toDelete ;
+                        n-- ;
+                    } else {
+                        curr = head ;
+                        for(int i=0 ; i<pos-1 && curr != NULL && curr->next != NULL ; i++){
+                            curr = curr->next ;
+                        }
+                        if (curr != NULL && curr->next != NULL) {
+                            Node* toDelete = curr->next ;
+                            curr->next = curr->next->next ;
+                            delete toDelete ;
+                            n-- ;
+                        }
+                    }
                 }
-                curr->next = curr->next->next   ;
                 break ;
             }
             case 3: {
@@ -65,7 +91,8 @@ int main(){
                 bool found = false ;
                 cout << "Enter the Element : " ;
                 cin >> key ;
-                for(int i=0 ; i<n ; i++){
+                curr = head ;
+                while(curr != NULL){
                     if(curr->data == key){
                         cout << "Element is present at : " << j << endl ;
                         found = true ;
@@ -80,10 +107,12 @@ int main(){
                 break ;
             }
             case 4: {
-                for(int i=0 ; i<n ; i++){
+                curr = head ;
+                while(curr != NULL){
                     cout << curr->data << " " ;
                     curr = curr->next ;
                 }
+                cout << endl ;
                 break;
         }
         case 5:
