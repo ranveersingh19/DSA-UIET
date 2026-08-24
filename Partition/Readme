@@ -1,0 +1,48 @@
+Quickselect and Quicksort Algorithms
+
+This C++ source code demonstrates three partitioning-based algorithm implementations: a single Quickselect partition pass on an array, Quickselect to find the k smallest elements in an array, and a full recursive Quicksort implementation.
+
+Partition Mechanism Overview
+All three implementations use Hoare-like partition variations. A pivot element is selected from the start of the array or subarray (arr[low]). Pointers move inward from both ends of the array segment until elements are found on the wrong side of the pivot. These elements are swapped, and once the pointers cross, the pivot element is swapped into its final sorted position index j.
+
+Code Breakdown
+
+Program 1: Single Partition Pass
+The function part takes an array and a range defined by low and high. It uses the first element arr[low] as the pivot (v). Pointer i increments while elements are less than or equal to v, and pointer j decrements while elements are strictly greater than v. Out-of-place elements are swapped. When i and j meet or cross, arr[low] is swapped with arr[j], placing the pivot at index j. The main function applies this to array {3, 5, 2, 1, 4} with low=0 and high=4. The pivot is 3. Elements smaller than or equal to 3 move left, and larger elements move right.
+
+Program 2: K Smallest Elements (Quickselect Variant)
+This program uses a modified partition function alongside kelements to find and place the k smallest elements at the beginning of the array without fully sorting the entire array. The algorithm repeatedly partitions the array segment containing the target index k-1. If the partition index p is greater than k-1, the right boundary shifts to p-1. Otherwise, the left boundary shifts to p+1. In main, with input {3, 5, 2, 1, 4} and k=3, the array is partially reordered so that the 3 smallest elements occupy the first 3 indices.
+
+Program 3: Quicksort Algorithm
+The Qsort function recursively sorts an array. It sets i = low + 1 and j = high with pivot = arr[low]. Pointer i moves forward while arr[i] <= pivot, and j moves backward while arr[j] >= pivot. Note that arr[j] >= pivot allows j to step past duplicate pivot values down to low. After swapping out-of-order pairs and swapping the pivot with arr[j], Qsort recursively calls itself on the left subarray from low to j-1 and the right subarray from j+1 to high. Main executes this on an 8-element array {7, 2, 5, 3, 8, 18, 3, 10}.
+
+Time Complexity Analysis
+
+Program 1: Single Partition
+Best Case: O(N)
+Average Case: O(N)
+Worst Case: O(N)
+Space Complexity: O(1) auxiliary space.
+
+Program 2: Quickselect (kelements)
+Best Case: O(N)
+Average Case: O(N)
+Worst Case: O(N^2) when poor pivots are chosen continuously on sorted/reverse-sorted inputs.
+Space Complexity: O(1) auxiliary space (iterative implementation).
+
+Program 3: Quicksort (Qsort)
+Best Case: O(N log N) when pivots split arrays evenly.
+Average Case: O(N log N)
+Worst Case: O(N^2) when array is already sorted or reverse sorted, leading to unbalanced partitions.
+Space Complexity: O(log N) average call stack depth, O(N) worst case call stack depth.
+
+Sample Outputs
+
+Program 1 Output:
+1 2 3 5 4
+
+Program 2 Output:
+1 2 3
+
+Program 3 Output:
+2 3 3 7 8 10 18 5
