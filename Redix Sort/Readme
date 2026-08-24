@@ -1,0 +1,36 @@
+README
+
+Radix Sort Implementation in C++
+
+Overview
+This program demonstrates Radix Sort using two different underlying data structures: a standard fixed-size array and a singly linked list. Radix Sort is a non-comparative sorting algorithm that sorts integers digit by digit, starting from the least significant digit to the most significant digit. In both implementations, ten STL queues (representing digits 0 through 9) are used as buckets to preserve the relative order of elements, ensuring that the sort remains stable across iterations.
+
+How It Works
+First, the program computes the maximum element in the dataset to determine how many passes are required based on the number of digits in the maximum value.
+Next, for each digit position (ones place, tens place, hundreds place, etc.), the elements are distributed into one of ten queues according to the value of their digit at that position.
+Finally, the elements are extracted from the queues in numerical digit order (0 to 9) and collected back into the array or linked list before proceeding to the next digit place.
+
+Time and Space Complexity
+Time Complexity: O(d * (N + k))
+Where:
+N is the total number of elements in the array or linked list.
+d is the maximum number of digits in the largest integer (d = log10(maximum value) + 1).
+k is the radix base, which is 10 for decimal numbers.
+Since k is constant (10), the time complexity simplifies to O(d * N). In the worst case, Radix Sort operates in linear or near-linear time relative to the number of elements.
+
+Space Complexity: O(N + k)
+Extra space is required to store the N elements inside the digit queues during each pass, along with the overhead of managing 10 separate queue structures.
+
+Sample Output
+
+Output for Code 1 (Array Implementation):
+Before sorting:
+170 45 75 90 802 24 2 66
+After sorting:
+2 24 45 66 75 90 170 802
+
+Output for Code 2 (Linked List Implementation):
+Before sorting:
+170 -> 45 -> 75 -> 90 -> 802 -> 24 -> 2 -> 66 -> NULL
+After sorting:
+2 -> 24 -> 45 -> 66 -> 75 -> 90 -> 170 -> 802 -> NULL
