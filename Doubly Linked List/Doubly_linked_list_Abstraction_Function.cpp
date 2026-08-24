@@ -1,18 +1,13 @@
 #include <iostream>
-
 using namespace std;
-
 struct Node {
 	int data;
 	Node* previous;
 	Node* next;
 };
-
 Node* head = nullptr;
-
 void insertAtPosition(int element, int position) {
 	Node* newNode = new Node{element, nullptr, nullptr};
-
 	if (position == 0) {
 		newNode->next = head;
 		if (head != nullptr) {
@@ -21,58 +16,45 @@ void insertAtPosition(int element, int position) {
 		head = newNode;
 		return;
 	}
-
 	Node* current = head;
 	for (int i = 0; current != nullptr && i < position - 1; i++) {
 		current = current->next;
 	}
-
 	if (current == nullptr) {
 		delete newNode;
 		cout << "Invalid position.\n";
 		return;
 	}
-
 	newNode->next = current->next;
 	newNode->previous = current;
-
 	if (current->next != nullptr) {
 		current->next->previous = newNode;
 	}
 	current->next = newNode;
 }
-
 bool deleteAtPosition(int position, int& element) {
 	Node* current = head;
-
 	for (int i = 0; current != nullptr && i < position; i++) {
 		current = current->next;
 	}
-
 	if (current == nullptr) {
 		return false;
 	}
-
 	element = current->data;
-
 	if (current->previous != nullptr) {
 		current->previous->next = current->next;
 	} else {
 		head = current->next;
 	}
-
 	if (current->next != nullptr) {
 		current->next->previous = current->previous;
 	}
-
 	delete current;
 	return true;
 }
-
 void search(int key) {
 	Node* current = head;
 	int position = 0;
-
 	while (current != nullptr) {
 		if (current->data == key) {
 			cout << "Element found at position " << position << ".\n";
@@ -81,18 +63,14 @@ void search(int key) {
 		current = current->next;
 		position++;
 	}
-
 	cout << "Element not found.\n";
 }
-
 void display() {
 	Node* current = head;
-
 	if (current == nullptr) {
 		cout << "List is empty.\n";
 		return;
 	}
-
 	cout << "List: ";
 	while (current != nullptr) {
 		cout << current->data << ' ';
@@ -100,15 +78,12 @@ void display() {
 	}
 	cout << '\n';
 }
-
 int main() {
 	int choice;
-
 	do {
 		cout << "\n1. Insert\n2. Delete\n3. Search\n4. Display\n5. Exit\n";
 		cout << "Enter your choice: ";
 		cin >> choice;
-
 		if (choice == 1) {
 			int element, position;
 			cout << "Enter element and position: ";
@@ -138,6 +113,5 @@ int main() {
 			cout << "Invalid choice.\n";
 		}
 	} while (choice != 5);
-
 	return 0;
 }
