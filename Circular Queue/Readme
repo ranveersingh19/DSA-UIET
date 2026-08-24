@@ -1,0 +1,71 @@
+This program provides two different C++ implementations of a Queue data structure: a Circular Singly Linked List implementation and a Fixed-Size Circular Array implementation. Both scripts offer an interactive menu-driven interface allowing users to enqueue elements, dequeue elements, and display the current state of the queue.
+
+Implementation 1: Circular Linked List Queue
+The first implementation uses a dynamically allocated circular singly linked list managed by a single global pointer named rear. The front of the queue is accessible via rear->next.
+
+Operations and Mechanics:
+
+* Enqueue: Creates a new node. If the queue is empty, rear points to the new node, and its next pointer points to itself. If not empty, the new node is inserted after rear, its next pointer is set to the front node (rear->next), and rear is updated to point to the new node.
+* Dequeue: Identifies the front node using rear->next. Retrieves its value and updates rear->next to point to front->next. If only one node remains, rear is reset to nullptr. The front node memory is then freed.
+* Display: Iterates from rear->next around the circular list back to rear->next using a do-while loop, printing each node's value.
+
+Time Complexity for Implementation 1:
+
+* Enqueue: O(1) time complexity because insertion happens directly at the rear pointer without traversing the list.
+* Dequeue: O(1) time complexity because the front node is accessed immediately via rear->next.
+* Display: O(n) time complexity where n is the number of elements currently in the queue, as it traverses all nodes once.
+* Auxiliary Space Complexity: O(n) dynamic memory allocated for n nodes.
+
+Implementation 2: Circular Array Queue
+The second implementation uses a fixed-size array of capacity 10 with modular arithmetic to manage front and rear positions efficiently.
+
+Operations and Mechanics:
+
+* Enqueue: Checks if queueSize equals capacity. If full, returns false. Otherwise, writes the element at arr[rearIndex], increments rearIndex using modulo arithmetic ((rearIndex + 1) % capacity), and increments queueSize.
+* Dequeue: Checks if queueSize is 0. If empty, returns false. Otherwise, retrieves arr[frontIndex], increments frontIndex using modulo arithmetic ((frontIndex + 1) % capacity), and decrements queueSize.
+* Display: Loops queueSize times, reading elements starting from frontIndex using index calculation ((frontIndex + i) % capacity).
+
+Time Complexity for Implementation 2:
+
+* Enqueue: O(1) time complexity since it performs direct array indexing and arithmetic.
+* Dequeue: O(1) time complexity since it directly accesses the array at frontIndex.
+* Display: O(n) time complexity where n is the current count of stored elements (queueSize).
+* Auxiliary Space Complexity: O(1) static space allocation (array of size 10).
+
+Sample Execution Output (identical workflow for both implementations):
+
+1. Enqueue
+2. Dequeue
+3. Display
+4. Exit
+Enter your choice: 1
+Enter the element: 10
+5. Enqueue
+6. Dequeue
+7. Display
+8. Exit
+Enter your choice: 1
+Enter the element: 20
+9. Enqueue
+10. Dequeue
+11. Display
+12. Exit
+Enter your choice: 3
+Queue: 10 20
+13. Enqueue
+14. Dequeue
+15. Display
+16. Exit
+Enter your choice: 2
+Dequeued element: 10
+17. Enqueue
+18. Dequeue
+19. Display
+20. Exit
+Enter your choice: 3
+Queue: 20
+21. Enqueue
+22. Dequeue
+23. Display
+24. Exit
+Enter your choice: 4
