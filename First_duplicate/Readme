@@ -1,29 +1,25 @@
-# README - First Duplicate Element
+First Repeating Element Finder
 
-## Aim
-This folder contains programs to find the first duplicate element in an array using two different approaches.
+This project contains two C++ implementations to find the 1-based index position of a repeating element in an array.
 
----
+Code Overview
+Both programs take an integer size input from the user, populate an array with integers, and search for repeated values. The first program uses nested loops to compare elements. The second program uses a hash map (unordered_map) to store the latest index of each element and then checks if an element appears at an index different from its saved index in the map.
 
-## Algorithm
-1. Read the array size and elements.
-2. For the brute-force version, compare each element with all previous elements.
-3. For the mapping version, store the index of each element in a hash map and check for mismatch.
+Time Complexity
 
----
+First Implementation (Nested Loops):
+Worst Case Time Complexity: O(n^2) because it uses nested loops to check every previous element.
+Space Complexity: O(1) auxiliary space (excluding the array storage).
 
-## How it works
-The brute-force method checks every pair of elements to detect a duplicate, while the mapping method uses a dictionary-like structure to track positions efficiently.
+Second Implementation (Unordered Map):
+Worst Case Time Complexity: O(n) average time complexity because hash map insertions and lookups take O(1) time on average.
+Space Complexity: O(n) auxiliary space to store elements in the hash map.
 
----
+Sample Output
 
-## Functionality
-- Finds the first duplicated value in the array
-- Prints the position of the duplicate if found
-- Prints -1 if no duplicate exists
+Enter size of array :5
+Enter the Elements in array :10 20 30 20 50
+4th position
 
----
-
-## Time and Space Complexity
-- Brute-force version: Time O(n^2), Space O(1)
-- Mapping version: Time O(n), Space O(n)
+Note on Non-Standard C++ Feature
+Both programs use Variable Length Arrays (int arr[n];), which is a GCC extension and not part of the standard C++ language specification. For standard C++, dynamic memory allocation using std::vector arr(n); is recommended.
