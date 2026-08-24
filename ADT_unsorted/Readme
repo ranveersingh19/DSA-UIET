@@ -1,31 +1,27 @@
-README - Unordered Array Operations (C++)
+This C++ program implements a menu driven system for performing dynamic operations on a fixed size 1D array of up to 100 elements. The user first inputs the initial array size and elements, then continuously interacts with a menu to perform insertion, deletion, linear search, or display operations until choosing to exit.
 
-1. Aim:
-To implement operations on an unordered array using C++ with a menu-driven interface, covering insertion, deletion, linear search, and array display.
-2. Code Features:
-2.1. Fixed-size array allocation of 100 integers.
-2.2. Interactive menu loop using a do-while loop and switch-case statement.
-2.3. Position validation for insertion and deletion to prevent invalid memory access.
-2.4. Underflow check to ensure deletion is not attempted on an empty array.
-3. Algorithm Steps:
-3.1. Input: Read initial element count n and populate array arr.
-3.2. Menu Loop: Present choices (1 to 5) repeatedly until choice 5 is selected.
-3.3. Insertion (Choice 1): Validate position (0 to n). Shift elements right from index n-1 down to position. Insert new element and increment n.
-3.4. Deletion (Choice 2): Check if empty. Validate position (0 to n-1). Shift elements left from position+1 up to n-1. Decrement n.
-3.5. Search (Choice 3): Prompt for search key. Perform linear search from index 0 to n-1. Output match index or failure message.
-3.6. Display (Choice 4): Iterate from index 0 to n-1 and print array elements.
-3.7. Exit (Choice 5): End program execution.
-4. Time Complexity:
-4.1. Insertion: Best Case O(1) at end, Worst Case O(n) at start, Average Case O(n).
-4.2. Deletion: Best Case O(1) at end, Worst Case O(n) at start, Average Case O(n).
-4.3. Search: Best Case O(1) at first element, Worst Case O(n) at last or missing, Average Case O(n).
-4.4. Display: O(n) as it traverses all active elements.
-5. Space Complexity:
-5.1. Auxiliary Space: O(1) using constant extra variables for indices and values.
-5.2. Total Allocated Space: O(1) fixed allocation for arr[100].
-6. Sample Input and Output:
-Enter number of elements: 3
-Enter elements: 10 20 30
+Program Overview and Features
+
+The application starts by initializing an integer array with a maximum capacity of 100 and populating it with a user-specified number of elements. The execution then enters a do-while loop presenting five main choices.
+Choice 1 handles insertion at a specified index. It validates the index within bounds, shifts existing elements to the right starting from the end of the array down to the given position, places the new element, and increments the element count.
+Choice 2 performs element deletion from a valid index. It checks if the array is non-empty, shifts all subsequent elements to the left by one position to fill the gap, and decrements the total count.
+Choice 3 conducts a linear search. It iterates through the array sequentially from index 0 to n minus 1, returning the exact index when the target key is matched or indicating that the element is absent.
+Choice 4 iterates through the active array elements from start to finish and prints them space-separated.
+Choice 5 terminates the program, while any choice outside 1 through 5 prompts an invalid option warning.
+
+Time Complexity Analysis
+
+Insertion operation requires O(N) time in the worst and average cases because elements must be shifted to the right to make room at the desired position. Inserting at the very end takes O(1) time.
+Deletion operation takes O(N) time in the worst and average cases due to leftward shifting of remaining elements. Deleting from the end takes O(1) time.
+Search operation uses linear search, taking O(N) time in the worst case when the element is at the end or missing, and O(1) time in the best case when the target is at index 0.
+Display operation takes O(N) time as it iterates through all N active elements in the array once.
+Overall space complexity is O(1) auxiliary space beyond the pre-allocated fixed array of 100 integers.
+
+Sample Output
+
+Enter the number of elements: 4
+Enter the elements of the unordered array:
+5 12 8 20
 
 MENU
 
@@ -34,6 +30,16 @@ MENU
 3. Search Element
 4. Display Array
 5. Exit
-Enter choice: 3
-Enter element to search: 20
-Element found at index 1.
+Enter your choice: 3
+Enter element to search: 8
+Element found at index 2.
+
+MENU
+
+1. Insert Element
+2. Delete Element
+3. Search Element
+4. Display Array
+5. Exit
+Enter your choice: 5
+Exiting program...
