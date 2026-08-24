@@ -1,0 +1,18 @@
+Merge Sort Implementation in C++
+
+Overview
+This program sorts an array of integers in ascending order using the Merge Sort algorithm. Merge Sort is a divide and conquer algorithm that recursively splits the input array into smaller subarrays, sorts them, and merges them back together.
+
+How the Code Works
+The merge function takes two sorted subarrays defined by the indices left to mid and mid + 1 to right. It uses temporary storage to compare elements from both halves, places the smaller element into the temporary array, and copies any remaining elements. Finally, it copies the sorted elements back into the original array.
+The mergeSort function calculates the midpoint using left + (right - left) / 2 to prevent potential integer overflow. It recursively calls itself on the left and right halves and merges them using the merge function.
+The main function initializes an unsorted array of seven integers, calculates the total number of elements, calls mergeSort to sort the array, and prints the sorted array to the console.
+
+Time Complexity
+Best Case Time Complexity: O(n log n)
+Average Case Time Complexity: O(n log n)
+Worst Case Time Complexity: O(n log n)
+Space Complexity: O(n) due to the temporary array used during the merging process.
+
+Sample Output
+Sorted array: 3 9 10 27 38 43 82
