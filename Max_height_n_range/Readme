@@ -1,117 +1,21 @@
-# README - Projectile Motion Calculator (C++)
+This is a detailed guide for the provided C++ projectile motion program.
 
-## Aim
+Project Overview
+This program calculates the maximum height and maximum range of a projectile given its initial velocity and launch angle. The calculations are based on standard kinematic equations of motion under constant gravitational acceleration.
 
-To implement a C++ program that calculates the **maximum height** and **horizontal range** of a projectile using its initial velocity and angle of projection.
+Kinematic Formulas Used
+The maximum height reached by a projectile is calculated using the formula height equals initial velocity squared times the square of the sine of the launch angle divided by two times gravity. In this specific code, the formula implemented divides by 9.8 instead of 19.6, which represents gravity divided by two.
+The maximum range reached by a projectile is calculated using the formula range equals initial velocity squared times the sine of twice the launch angle divided by gravity. The code uses 9.8 meters per second squared as the value for gravitational acceleration.
+Angle conversion from degrees to radians is performed using the approximation pi equals 22 divided by 7.
 
----
+Code Breakdown
+The main function initializes the projectile calculation by calling the function named proj with an initial velocity of 15 units per second and a launch angle of 30 degrees.
+The proj function converts the angle in degrees to radians. It then calculates the maximum height using the initial velocity and sine of the radian angle. Next, it calculates the horizontal range using the sine of twice the radian angle. Finally, it prints both calculated values to the standard output stream.
 
-## Algorithm
+Time and Space Complexity
+Time Complexity is O(1) constant time because the program executes a fixed sequence of basic arithmetic operations and trigonometric mathematical function calls regardless of the input values.
+Space Complexity is O(1) constant auxiliary space because the memory used by local float variables remains constant regardless of the inputs.
 
-### Step 1: Define Function
-1. Create a function `proj(float vel, float deg)`.
-
-### Step 2: Convert Angle
-1. Convert the angle from degrees to radians.
-
-### Step 3: Calculate Maximum Height
-1. Use the formula:
-   - `H = (u² × sin²θ) / (2g)`
-2. Store the result.
-
-### Step 4: Calculate Horizontal Range
-1. Use the formula:
-   - `R = (u² × sin(2θ)) / g`
-2. Store the result.
-
-### Step 5: Display Results
-1. Print the maximum height.
-2. Print the horizontal range.
-
-### Step 6: Main Function
-1. Call the `proj()` function with the required velocity and angle.
-2. Display the calculated values.
-
----
-
-## How It Works
-
-The program takes the **initial velocity** and the **angle of projection** as input (in this program, the values are passed directly to the function).
-
-Since C++ trigonometric functions use **radians**, the angle is first converted from degrees to radians.
-
-The program then applies the standard projectile motion equations to calculate:
-
-- **Maximum Height** reached by the projectile.
-- **Horizontal Range** covered before it lands.
-
-Finally, both values are displayed on the screen.
-
----
-
-## Function Used
-
-### `proj(float vel, float deg)`
-
-**Purpose:**
-- Calculates and displays the maximum height and horizontal range of a projectile.
-
-**Parameters:**
-- `vel` – Initial velocity of the projectile.
-- `deg` – Angle of projection in degrees.
-
-**Return Type:**
-- `void`
-
----
-
-## Formula Used
-
-Maximum Height:
-
-```
-H = (u² × sin²θ) / (2g)
-```
-
-Horizontal Range:
-
-```
-R = (u² × sin(2θ)) / g
-```
-
-where:
-- `u` = Initial velocity
-- `θ` = Angle of projection (in radians)
-- `g` = Acceleration due to gravity (9.8 m/s²)
-
----
-
-## Time Complexity
-
-- **Time Complexity:** O(1)
-- **Space Complexity:** O(1)
-
----
-
-## Sample Input
-
-```cpp
-proj(15, 30);
-```
-
----
-
-## Sample Output
-
-```
-Maximum height reached => 2.87
-Maximum range reached => 19.88
-```
-
-*(Values are approximate.)*
-
----
-
-## Conclusion
-
-This program demonstrates the application of projectile motion equations in C++. It converts the launch angle from degrees to radians and computes the maximum height and horizontal range using mathematical formulas. Since only a fixed number of calculations are performed, the algorithm has constant time and space complexity.
+Sample Output
+Maximum height reached => 5.74106
+Maximum range reached => 19.8876
