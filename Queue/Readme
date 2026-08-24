@@ -1,32 +1,39 @@
-# README - Queue Operations
+This README covers two implementations of a Queue data structure in C++: the first using the C++ Standard Template Library (std::queue) and the second using a custom singly linked list.
 
-## Aim
-This folder contains queue-related programs that demonstrate the basic operations of a queue using different implementations.
+A queue follows the First-In, First-Out (FIFO) principle, where elements are inserted at the rear and removed from the front.
 
----
+OVERVIEW OF IMPLEMENTATIONS
 
-## Algorithm
-1. Create a queue and initialize it as empty.
-2. For the STL queue version, push elements into the queue and remove the front element using pop.
-3. For the linked-list version, add nodes at the rear and remove nodes from the front.
-4. Check whether the queue is empty and display the contents when needed.
+1. STL Queue Implementation
+This implementation wraps the built-in std::queue container. It defines helper functions to enqueue (push), dequeue (pop), and check if the queue is empty.
+2. Linked List Queue Implementation
+This implementation builds a queue from scratch using dynamic memory allocation and pointers. Node structure holds an integer data value and a pointer to the next node. Pointers front and rear track the head and tail of the queue. Additional functionality includes a display function to traverse and print all elements.
 
----
+TIME AND SPACE COMPLEXITY
 
-## How it works
-A queue follows the FIFO (First In, First Out) principle. The first inserted element is removed first. In the linked-list version, the front pointer points to the first node and the rear pointer points to the last node.
+STL Queue Operations:
 
----
+* Enqueue (push): O(1) time complexity.
+* Dequeue (pop): O(1) time complexity.
+* Is Empty (Isempty): O(1) time complexity.
+* Space Complexity: O(N) where N is the number of elements in the queue.
 
-## Functionality
-- Insert an element into the queue
-- Remove the front element
-- Check whether the queue is empty
-- Display the contents of the queue
+Linked List Queue Operations:
 
----
+* Enqueue (push): O(1) time complexity, as insertion occurs directly at the rear pointer.
+* Dequeue (pop): O(1) time complexity, as deletion occurs directly at the front pointer.
+* Is Empty (Isempty): O(1) time complexity.
+* Display (display): O(N) time complexity, as it traverses all nodes from front to rear.
+* Space Complexity: O(N) where N is the number of elements, plus pointer overhead per node.
 
-## Time and Space Complexity
-- Enqueue / Dequeue: O(1) average
-- Display: O(n)
-- Extra space: O(n) for the linked-list version and queue storage
+SAMPLE OUTPUT
+
+Program 1 (STL Queue) Output:
+Removed: 10
+Queue is not empty
+
+Program 2 (Linked List Queue) Output:
+10 20 30
+Removed: 10
+20 30
+Queue is not empty
