@@ -1,30 +1,32 @@
-# README - Binary Search Tree
+Binary Search Tree in C++
 
-## Aim
-This folder contains a menu-driven binary search tree program for inserting and deleting integer values.
+This program implements a menu-driven Binary Search Tree in C++. It allows the user to insert unique integer values and delete existing nodes from the tree. During deletion, the program first searches for the value to verify its existence and then removes it by handling leaf nodes, nodes with one child, and nodes with two children using the inorder successor. Note that the menu runs in an infinite loop and requires manual termination.
 
----
+Time Complexity
+The time complexity for insertion, deletion, and searching is O(h), where h is the height of the tree. In the average case for a balanced tree, the time complexity is O(log n). In the worst case, when the tree becomes skewed, the time complexity is O(n). The auxiliary space complexity is O(h) due to the recursive function call stack.
 
-## Algorithm
-1. Start with an empty tree.
-2. For insertion, compare the value with each visited node and descend left or right until an empty child is found.
-3. For deletion, find the node and handle the leaf, one-child, or two-child case.
-4. When deleting a node with two children, replace its value with the minimum value in its right subtree, then remove that successor.
+Sample Output
 
----
+BINARY SEARCH TREE
 
-## How it works
-A binary search tree stores smaller values in the left subtree and larger values in the right subtree. Duplicate values are not inserted. The program also uses a search routine to check whether a value exists before deleting it.
+1. Insert
+2. Delete
+Enter your choice: 1
+Enter value to insert: 50
+Value inserted successfully.
 
----
+BINARY SEARCH TREE
 
-## Functionality
-- Insert a value
-- Delete a value if it exists
-- Reject duplicate values
+1. Insert
+2. Delete
+Enter your choice: 2
+Enter value to delete: 30
+Value deleted successfully.
 
----
+BINARY SEARCH TREE
 
-## Time and Space Complexity
-- Insert, search, and delete: O(h), where h is the tree height (O(log n) average for a balanced tree; O(n) worst case)
-- Extra space: O(n) for the tree; O(h) recursion stack for tree operations
+1. Insert
+2. Delete
+Enter your choice: 2
+Enter value to delete: 99
+Value not found in BST.
