@@ -1,30 +1,38 @@
-# README - Binary Tree
+Binary Tree Creation and Traversal in C++
 
-## Aim
-This folder demonstrates creating a binary tree interactively and traversing its nodes.
+This repository contains two C++ programs demonstrating dynamic binary tree construction and recursive depth-first traversals.
 
----
+Program 1: Binary Tree Creation
+Defines a TreeNode class with an integer value and left and right pointers. The CreateTree function recursively builds the binary tree by taking user input for the current node value and asking whether left or right children exist (1 for YES, 0 for NO).
 
-## Algorithm
-1. Read the value for the current node.
-2. Ask whether the node has a left child and recursively create it when requested.
-3. Ask whether the node has a right child and recursively create it when requested.
-4. In `Traversal.cpp`, visit the created tree in preorder, inorder, and postorder.
+Sample Output for Program 1 (for a tree with root 1, left child 2, and right child 3)
+Enter Value of Node : 1
+If left Exist ? 0 for NO and 1 for YES1
+Enter Value of Node : 2
+If left Exist ? 0 for NO and 1 for YES0
+If right Exist ? 0 for NO and 1 for YES0
+If right Exist ? 0 for NO and 1 for YES1
+Enter Value of Node : 3
+If left Exist ? 0 for NO and 1 for YES0
+If right Exist ? 0 for NO and 1 for YES0
 
----
+Program 2: Binary Tree Creation and Traversal
+Extends the first program by adding three recursive traversal functions after constructing the tree. Preorder visits Root, Left, Right. Inorder visits Left, Root, Right. Postorder visits Left, Right, Root.
 
-## How it works
-Each node stores a value and pointers to its left and right children. The prompts let the user choose the tree's shape. Unlike a binary search tree, this binary tree does not impose an ordering rule on node values.
+Sample Output for Program 2 (for a tree with root 1, left child 2, and right child 3)
+Enter Value of Node : 1
+If left Exist ? 0 for NO and 1 for YES1
+Enter Value of Node : 2
+If left Exist ? 0 for NO and 1 for YES0
+If right Exist ? 0 for NO and 1 for YES0
+If right Exist ? 0 for NO and 1 for YES1
+Enter Value of Node : 3
+If left Exist ? 0 for NO and 1 for YES0
+If right Exist ? 0 for NO and 1 for YES0
+Preorder: 1 2 3
+Inorder: 2 1 3
+Postorder: 2 3 1
 
----
-
-## Functionality
-- Create a binary tree by entering node values and choosing its children
-- Display preorder, inorder, and postorder traversals in `Traversal.cpp`
-
----
-
-## Time and Space Complexity
-- Tree creation: O(n) time
-- Each traversal: O(n) time
-- Extra space: O(n) for the nodes; O(h) recursion stack, where h is the tree height
+Time and Space Complexity
+Time Complexity: O(N) for both tree creation and all three traversals, where N is the total number of nodes in the tree, because every node is visited exactly once.
+Space Complexity: O(H) auxiliary space for the recursion call stack, where H is the height of the tree. In the worst case of a skewed tree, this is O(N), and in the best case of a balanced tree, this is O(log N).
