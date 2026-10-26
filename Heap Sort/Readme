@@ -1,0 +1,23 @@
+Heap Sort Implementations in C++
+
+Overview
+This repository contains two C++ programs that implement the Heap Sort algorithm. The first program sorts a standard array in place by building a max-heap and repeatedly extracting the maximum element. The second program sorts a singly linked list by transferring the node values into an auxiliary vector, applying heap sort to the vector, and copying the sorted values back into the linked list nodes. Note that in the second program, elements are inserted at the head of the linked list, so the initial unsorted sequence appears in reverse order compared to the array.
+
+Program 1: Heap Sort on an Array
+Time Complexity: O(n log n) in best, average, and worst cases. Building the initial max-heap takes O(n) time, and extracting each of the n elements while restoring the heap property takes O(n log n) time.
+Space Complexity: O(log n) auxiliary space due to the recursive call stack in the heapify function.
+
+Sample Output for Program 1
+Before sorting: 12 11 13 5 6 7 -3 11
+After sorting:  -3 5 6 7 11 11 12 13
+
+Program 2: Heap Sort on a Singly Linked List
+Time Complexity: O(n log n) in best, average, and worst cases. Traversing the list to copy elements takes O(n) time, sorting the auxiliary vector takes O(n log n) time, and writing the sorted values back to the list takes O(n) time.
+Space Complexity: O(n) auxiliary space required to store the n node values inside the vector, plus O(log n) stack space for recursion.
+
+Sample Output for Program 2
+Before sorting: 11 -3 7 6 5 13 11 12
+After sorting:  -3 5 6 7 11 11 12 13
+
+How to Compile and Run
+Save the desired program as main.cpp, compile it using g++ main.cpp -o heapsort, and run the executable using ./heapsort.
