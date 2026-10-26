@@ -1,27 +1,41 @@
-This C++ program implements a doubly linked list with zero-based indexing. It supports inserting an element at a specified position, deleting an element at a specified position, searching for an element by value, and displaying the current contents of the list.
+Doubly Linked List Implementation
 
-The program manages memory using dynamic allocation with the new operator during insertion and frees memory using the delete operator during removal. A global pointer named head tracks the start of the list.
+This C++ program implements a menu-driven Doubly Linked List using a 0-based index system. Each node holds an integer data value, a pointer to the previous node, and a pointer to the next node.
 
-Time Complexity:
+Operations Included
+Insert at Position inserts a new element at a given 0-based index. If the position is out of bounds, it displays an error message.
+Delete at Position removes the node at a given 0-based index and returns the deleted value.
+Search traverses the list to find the first occurrence of a given element and prints its 0-based index.
+Display prints all elements currently in the list from head to tail.
 
-Insertion at position 0: O(1) time complexity.
-Insertion at position N: O(N) time complexity because it traverses up to position N - 1.
-Deletion at position 0: O(1) time complexity.
-Deletion at position N: O(N) time complexity because it traverses up to position N.
-Search: O(N) time complexity in the worst case as it scans from head to tail.
-Display: O(N) time complexity to traverse and print all elements.
-Space Complexity: O(1) auxiliary space per operation, and O(N) overall space to store N nodes.
+Time Complexity
+Insert at Position: O(1) at the head (position 0), O(n) for arbitrary positions in the worst case.
+Delete at Position: O(1) at the head (position 0), O(n) for arbitrary positions in the worst case.
+Search: O(n) in the worst case.
+Display: O(n) to traverse all nodes.
+Space Complexity: O(n) to store n nodes, with O(1) auxiliary space per operation.
 
-Sample Output:
+Sample Output
 
-    Insert
-
-    Delete
-
-    Search
-
-    Display
-
-    Exit
-    Enter your choice: 1
-    Enter element and position: 10 0
+1. Insert
+2. Delete
+3. Search
+4. Display
+5. Exit
+Enter your choice: 1
+Enter element and position: 10 0
+6. Insert
+7. Delete
+8. Search
+9. Display
+10. Exit
+Enter your choice: 4
+List: 10
+11. Insert
+12. Delete
+13. Search
+14. Display
+15. Exit
+Enter your choice: 2
+Enter position: 0
+Deleted element: 10
